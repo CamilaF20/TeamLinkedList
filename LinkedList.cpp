@@ -1,3 +1,4 @@
+
 //
 // Created by Jairo Riaño on 6/09/24.
 //
@@ -48,15 +49,23 @@ T *LinkedList<T>::deleteNode(Node<T> * node) {
     return nullptr;
 }
 
+/**
+ * Responsable Guevara Uribe
+ * Método que obtiene una lista enlazada
+ * @tparam T Elementos de la lista enlazada
+ * @return Vector con los apuntadores de los elementos de la lista
+ */
 template<class T>
 std::vector<T *> LinkedList<T>::getLinkedList() {
-    std::vector<T*> listElements;
-    Node<T>* temp = head;
-    while(temp != NULL){
-        listElements.push_back(temp->info);
-        temp = temp->next;
+    std::vector<T *> list;
+    Node<T> *node = head;
+
+    while (node != nullptr) {
+        list.push_back(node->info);
+        node = node->next;
     }
-    return listElements;
+  
+    return list;
 }
 
 template<class T>
@@ -97,17 +106,22 @@ void LinkedList<T>::addNodeLast(T *node) {
         temp->next=newNode;
     }
 }
-
+/**
+ * loren ipsum
+ * @tparam T
+ * @param node Objeto a partir del cual se va a crear el nodo
+ */
 template<class T>
-void LinkedList<T>::addNodeFirst(T *node) {
-    Node<T> *newNode = new Node<T>( node );
-    if (isEmpty()) {
-        head=newNode;
-    }else {
-        newNode->next=head;
-        head=newNode;
+void LinkedList<T>::addNodeFirst(T * node) {
+        Node<T> *newNode = new Node<T>(node);
+
+        if (isEmpty()) {
+            head = newNode;
+        } else {
+            newNode->next = head;
+            head = newNode;
+        }
     }
-}
 
 /**
  * Responsable Riaño Herrera
@@ -120,13 +134,28 @@ bool LinkedList<T>::isEmpty() {
     return head == NULL;
 }
 
+/**
+ *      1123345948304563443464
+ *                533535355456
+ *   -----------------------------
+ *                         900
+ * Método que suma dos números representados en listas
+ * @tparam T Paramétro de la clase
+ * @param list Indica la lista del segundo número
+ * @return  coleccion con el resultado de la suma
+ */
+template<class T>
+std::vector<T*> LinkedList<T>::sumNumber(LinkedList<T>* list){
+
+}
+
+
 template<class T>
 LinkedList<T>::~LinkedList() {
-    Node<T>* temp = head;
+  Node<T>* temp = head;
     while(temp != NULL){
         Node<T>* next = temp->next;
         delete temp;
         temp = next;
     }
 }
-
