@@ -1,5 +1,5 @@
 # Proyecto de Listas Enlazadas
-Ejemplo académico de la lógica de listas enlazadas sencillas, desarrollado por los estudiantes del programa de Ingeniería de Sistemas y Computación de la [uptc](https://www.upyc.edu.co), del curso de `Programación-III`
+Ejemplo académico de la lógica de listas enlazadas sencillas, desarrollado por los estudiantes del programa de Ingeniería de Sistemas y Computación de la [uptc](https://www.uptc.edu.co), del curso de `Programación-III`
 
 ## Herramientas
 - C++ std=17
