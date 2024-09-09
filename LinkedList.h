@@ -25,12 +25,12 @@ public:
     T* getObject();
     T* getFirst();
     T* getLast();
+    std::vector<T*> sumNumber(LinkedList<T>*);
     virtual ~LinkedList();
 
 private:
     Node<T> *head;
 };
-
 
 
 #endif //LKPROJECT_LINKEDLIST_H
