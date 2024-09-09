@@ -41,7 +41,15 @@ T *LinkedList<T>::getObject() {
 
 template<class T>
 int LinkedList<T>::getSize() {
-    return 0;
+    std::vector<T *> listData;
+    Node<T> *curret= head;
+    int size = 0;
+    while (curret != nullptr) {
+        listData.push_back(curret->info);
+        curret = curret->next;
+        size++;
+    }
+    return size;
 }
 
 template<class T>
@@ -136,6 +144,15 @@ void LinkedList<T>::addNodeLast(T *data) {
 template<class T>
 void LinkedList<T>::addNodeAfterTo(Node<T> * node, T * value) {
 
+    if (head == nullptr) {
+        head = newNode;
+    } else {
+        Node<T> *temp = head;
+        while (temp->next != nullptr) {
+            temp = temp->next;  // Recorremos la lista hasta el último nodo
+        }
+        temp->next = newNode;
+    }
 }
 
 template<class T>
