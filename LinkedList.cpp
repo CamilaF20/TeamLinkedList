@@ -108,6 +108,7 @@ void LinkedList<T>::addNodeBeforeTo(Node<T> *targetNode, T *newData) {
 
     Node<T> *current = head;
     Node<T> *previous = nullptr;
+    Node<T> *newNode= new Node<T>(newData);
 
     while (current != nullptr && current != targetNode) {
         previous = current;
@@ -133,16 +134,18 @@ void LinkedList<T>::addNodeLast(T *data) {
     Node newNode = new Node(data);
     if (isEmpty()) {
         head = newNode;
-    }else {
+    } else {
         Node aux = head;
-        while (aux -> next != nullptr) {
+        while (aux->next != nullptr) {
             aux = aux->next;
         }
-        aux -> next = newNode;
+        aux->next = newNode;
     }
+}
 
 template<class T>
 void LinkedList<T>::addNodeAfterTo(Node<T> * node, T * value) {
+    Node<T> *newNode= new Node<T>(node);
 
     if (head == nullptr) {
         head = newNode;
@@ -155,19 +158,6 @@ void LinkedList<T>::addNodeAfterTo(Node<T> * node, T * value) {
     }
 }
 
-template<class T>
-void LinkedList<T>::addNodeLast(T *node) {
-    Node<T> *newNode= new Node<T>(node);
-    if (isEmpty()) {
-        head=newNode;
-    }else {
-        Node<T> *temp=head;
-        while (temp->next != NULL) {
-            temp=temp->next;
-        }
-        temp->next=newNode;
-    }
-}
 /**
  * loren ipsum
  * @tparam T

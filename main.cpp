@@ -31,12 +31,6 @@ int main() {
 
     delete(list);
 
-    string line;
-
-    do{
-        cin>>line;
-        cout<<line<<endl;
-    }while( line != "-1");
 
     return 0;
 }
