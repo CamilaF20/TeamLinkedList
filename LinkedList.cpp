@@ -79,9 +79,24 @@ void LinkedList<T>::addNodeAfterTo(Node<T> *, T *) {
 
 }
 
+/**
+ * Responsable Andryw Barrera
+ * Método que añade un valor u dato a la ultima posición
+ * @tparam T Parámetro de la clase
+ * @return nothing
+ */
 template<class T>
-void LinkedList<T>::addNodeLast(T *) {
-
+void LinkedList<T>::addNodeLast(T *data) {
+    Node newNode = new Node(data);
+    if (isEmpty()) {
+        head = newNode;
+    }else {
+        Node aux = head;
+        while (aux -> next != nullptr) {
+            aux = aux->next;
+        }
+        aux -> next = newNode;
+    }
 }
 
 template<class T>
