@@ -83,12 +83,16 @@ template<class T>
 void LinkedList<T>::addNodeLast(T *) {
 
 }
-
+/**
+ * loren ipsum
+ * @tparam T
+ * @param node Objeto a partir del cual se va a crear el nodo
+ */
 template<class T>
 void LinkedList<T>::addNodeFirst(T * node) {
         Node<T> *newNode = new Node<T>(node);
 
-        if (head == nullptr) {
+        if (isEmpty()) {
             head = newNode;
         } else {
             newNode->next = head;
@@ -106,6 +110,22 @@ template<class T>
 bool LinkedList<T>::isEmpty() {
     return head == NULL;
 }
+
+/**
+ *      1123345948304563443464
+ *                533535355456
+ *   -----------------------------
+ *                         900
+ * Método que suma dos números representados en listas
+ * @tparam T Paramétro de la clase
+ * @param list Indica la lista del segundo número
+ * @return  coleccion con el resultado de la suma
+ */
+template<class T>
+std::vector<T*> LinkedList<T>::sumNumber(LinkedList<T>* list){
+
+}
+
 
 template<class T>
 LinkedList<T>::~LinkedList() {
