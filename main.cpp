@@ -6,7 +6,6 @@ using namespace std;
 
 int main() {
 
-    //A
     LinkedList<char> *list = new LinkedList<char>();
     char r = 'R';
     char j = 'J';
@@ -19,11 +18,12 @@ int main() {
     list->addNodeFirst(&a);
     list->addNodeFirst(&j);
 
-    //J-A-I-R-O
     for( char *c : list->getLinkedList()){
         cout<<*c<<"-";
     }
     cout<<endl;
+
+    cout<<"\n"<<*list->getLast()<<endl;
 
     delete(list);
 

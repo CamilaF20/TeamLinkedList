@@ -10,9 +10,23 @@ LinkedList<T>::LinkedList() {
     LinkedList<T>::head = NULL;
 }
 
+/**
+ * Responsable Andres P. Perez
+ * Método que devuelve el ultimo elemento T en la lista
+ * @return T
+ */
 template<class T>
 T *LinkedList<T>::getLast() {
-    return nullptr;
+    if (isEmpty()) {
+        return nullptr;
+    }else {
+        Node<T>* temp=head;
+        while (temp->next!=NULL) {
+            temp=temp->next;
+        }
+        return temp->info;
+    }
+
 }
 
 template<class T>
@@ -31,7 +45,7 @@ int LinkedList<T>::getSize() {
 }
 
 template<class T>
-T *LinkedList<T>::deleteNode(Node<T> *) {
+T *LinkedList<T>::deleteNode(Node<T> * node) {
     return nullptr;
 }
 
@@ -43,7 +57,6 @@ T *LinkedList<T>::deleteNode(Node<T> *) {
  */
 template<class T>
 std::vector<T *> LinkedList<T>::getLinkedList() {
-
     std::vector<T *> list;
     Node<T> *node = head;
 
@@ -51,37 +64,47 @@ std::vector<T *> LinkedList<T>::getLinkedList() {
         list.push_back(node->info);
         node = node->next;
     }
+  
     return list;
 }
 
 template<class T>
-T *LinkedList<T>::findInfo(int) {
+T *LinkedList<T>::findInfo(int value) {
     return nullptr;
 }
 
 template<class T>
-Node<T> *LinkedList<T>::findNode(int) {
+Node<T> *LinkedList<T>::findNode(int value) {
     return nullptr;
 }
 
 template<class T>
-void LinkedList<T>::addNodeSorted(T *) {
+void LinkedList<T>::addNodeSorted(T * node) {
 
 }
 
 template<class T>
-void LinkedList<T>::addNodeBeforeTo(Node<T> *, T *) {
+void LinkedList<T>::addNodeBeforeTo(Node<T> *node, T * value) {
 
 }
 
 template<class T>
-void LinkedList<T>::addNodeAfterTo(Node<T> *, T *) {
+void LinkedList<T>::addNodeAfterTo(Node<T> * node, T * value) {
 
 }
 
 template<class T>
-void LinkedList<T>::addNodeLast(T *) {
-
+void LinkedList<T>::addNodeLast(T *node) {
+    Node<T> *newNode= new Node<T>(node);
+    if (isEmpty()) {
+        head=newNode;
+    }else {
+        Node<T> *temp=head;
+        while (temp->next != NULL) {
+            temp=temp->next;
+        }
+        temp->next=newNode;
+    }
 }
 /**
  * loren ipsum
@@ -129,5 +152,10 @@ std::vector<T*> LinkedList<T>::sumNumber(LinkedList<T>* list){
 
 template<class T>
 LinkedList<T>::~LinkedList() {
-
+  Node<T>* temp = head;
+    while(temp != NULL){
+        Node<T>* next = temp->next;
+        delete temp;
+        temp = next;
+    }
 }
