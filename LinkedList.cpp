@@ -83,10 +83,36 @@ void LinkedList<T>::addNodeSorted(T * node) {
 
 }
 
+/**
+ * Responsable Marlon Delgado
+ * Método que inserta un nuevo nodo antes del nodo objetivo en la lista enlazada.
+ * Si el nodo objetivo es el primer nodo de la lista, el nuevo nodo se añade al inicio de la lista.
+ * Si la lista está vacía o el nodo objetivo no se encuentra en la lista, el método no realiza ninguna acción.
+ *
+ * @tparam T Parámetro de la clase, tipo de dato almacenado en la lista enlazada.
+ * @param targetNode Puntero al nodo en la lista antes del cual se debe insertar el nuevo nodo.
+ * @param newData Puntero al dato que debe almacenarse en el nuevo nodo.
+ * @return void
+ */
 template<class T>
-void LinkedList<T>::addNodeBeforeTo(Node<T> *node, T * value) {
+void LinkedList<T>::addNodeBeforeTo(Node<T> *targetNode, T *newData) {
 
+
+    Node<T> *current = head;
+    Node<T> *previous = nullptr;
+
+    while (current != nullptr && current != targetNode) {
+        previous = current;
+        current = current->next;
+    }
+
+
+    if (current == targetNode) {
+        previous->next = newNode;
+        newNode->next = current;
+    }
 }
+
 
 template<class T>
 void LinkedList<T>::addNodeAfterTo(Node<T> * node, T * value) {
