@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include "LinkedList.cpp"
 
@@ -11,12 +12,13 @@ int main() {
     char a = 'A';
     char i = 'I';
     char o = 'O';
-
-    list->addNodeLast(&r);
+  
+    list->addNodeFirst(&o);
+    list->addNodeFirst(&r);
     list->addNodeFirst(&i);
     list->addNodeFirst(&a);
     list->addNodeFirst(&j);
-    list->addNodeLast(&o);
+
 
     // J-A-I-R-O
     for (char *c: list->getLinkedList()) {
@@ -25,7 +27,16 @@ int main() {
     cout << endl;
     cout <<"El tamaño del Nodo es de: "<< list->getSize() << endl;
 
-    delete list;
+    cout<<"\n"<<*list->getLast()<<endl;
+
+    delete(list);
+
+    string line;
+
+    do{
+        cin>>line;
+        cout<<line<<endl;
+    }while( line != "-1");
 
     return 0;
 }
