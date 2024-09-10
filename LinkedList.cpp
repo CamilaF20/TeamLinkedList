@@ -35,7 +35,16 @@ T *LinkedList<T>::getFirst() {
 }
 
 template<class T>
-T *LinkedList<T>::getObject() {
+T *LinkedList<T>::getObject(int key) {
+    Node<T>* current = head;
+
+    while (current != nullptr) {
+        if (current->info->getKey() == key) {
+            return current->info;
+        }
+        current = current->next;
+    }
+
     return nullptr;
 }
 
