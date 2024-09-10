@@ -22,7 +22,7 @@ public:
     std::vector<T*> getLinkedList();
     T* deleteNode(Node<T>*);
     int getSize();
-    T* getObject();
+    T* getObject(int key);
     T* getFirst();
     T* getLast();
     virtual ~LinkedList();
