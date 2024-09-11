@@ -1,4 +1,3 @@
-
 //
 // Created by Jairo Riaño on 6/09/24.
 //
@@ -81,7 +80,7 @@ std::vector<T *> LinkedList<T>::getLinkedList() {
         list.push_back(node->info);
         node = node->next;
     }
-  
+
     return list;
 }
 
@@ -90,9 +89,26 @@ T *LinkedList<T>::findInfo(int value) {
     return nullptr;
 }
 
+/**
+ * Responsable Edwar Fonseca
+ * Método que busca un nodo en la lista enlazada cuyo valor coincida con el valor proporcionado.
+ * @tparam T Tipo de los elementos almacenados en la lista enlazada
+ * @param value Valor que se busca en la lista
+ * @return Puntero al nodo que contiene el valor, o nullptr si no se encuentra
+ */
+
 template<class T>
 Node<T> *LinkedList<T>::findNode(int value) {
-    return nullptr;
+    Node<T>* current = head;
+
+    while (current != nullptr) {
+        if (*current->info == value) {
+            return current;
+        }
+        current = current->next;
+    }
+
+    return nullptr;  // Retorna nullptr si no se encuentra el nodo
 }
 
 template<class T>
@@ -174,15 +190,15 @@ void LinkedList<T>::addNodeAfterTo(Node<T> * node, T * value) {
  */
 template<class T>
 void LinkedList<T>::addNodeFirst(T * node) {
-        Node<T> *newNode = new Node<T>(node);
+    Node<T> *newNode = new Node<T>(node);
 
-        if (isEmpty()) {
-            head = newNode;
-        } else {
-            newNode->next = head;
-            head = newNode;
-        }
+    if (isEmpty()) {
+        head = newNode;
+    } else {
+        newNode->next = head;
+        head = newNode;
     }
+}
 
 /**
  * Responsable Riaño Herrera
@@ -213,7 +229,7 @@ std::vector<T*> LinkedList<T>::sumNumber(LinkedList<T>* list){
 
 template<class T>
 LinkedList<T>::~LinkedList() {
-  Node<T>* temp = head;
+    Node<T>* temp = head;
     while(temp != NULL){
         Node<T>* next = temp->next;
         delete temp;
