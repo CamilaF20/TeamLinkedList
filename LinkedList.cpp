@@ -11,6 +11,20 @@ LinkedList<T>::LinkedList() {
 }
 
 /**
+ * Responsable Julian Arias
+ * Método que inserta un nuevo nodo al principio de la lista enlazada.
+ * @param newData Puntero al dato que debe almacenarse en el nuevo nodo.
+ * @return void
+ */
+template<class T>
+void LinkedList<T>::addNodeFirst(T *newData) {
+    Node<T> *newNode = new Node<T>(newData);
+    newNode->next = head;
+    head = newNode;
+}
+
+
+/**
  * Responsable Andres P. Perez
  * Método que devuelve el ultimo elemento T en la lista
  * @return T
